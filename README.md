@@ -57,4 +57,4 @@
 | CLS | Cumulative Layout Shift | N/A | 🟢 |
 
 ### PageSpeed Insights 측정 결과
-![Image](https://github.com/user-attachments/assets/041317c3-b7c3-4ed3-bd21-9fb332893a3e)
+![Image](https://github.com/user-attachments/assets/e8e1dbd7-f92c-4b06-9644-4c83ed062b4e)
