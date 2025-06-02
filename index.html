@@ -46,21 +46,45 @@
             gtag('config', 'GTM-PKK35GL5');
         </script>
 
-        <!-- Deferred scripts -->
-        <script defer type="text/javascript" src="//www.freeprivacypolicy.com/public/cookie-consent/4.1.0/cookie-consent.js"></script>
-        <script defer type="text/javascript">
-            document.addEventListener('DOMContentLoaded', function() {
-                cookieconsent.run({
-                    "notice_banner_type":"simple",
-                    "consent_type":"express",
-                    "palette":"light",
-                    "language":"en",
-                    "page_load_consent_levels":["strictly-necessary"],
-                    "notice_banner_reject_button_hide":false,
-                    "preferences_center_close_button_hide":false,
-                    "page_refresh_confirmation_buttons":false,
-                    "website_name":"Performance Course"
-                });
+        <!-- Inline minimal cookie consent styles -->
+        <style>
+            .cookie-consent-banner {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background: #fff;
+                padding: 1rem;
+                box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+                z-index: 1000;
+                display: none;
+            }
+            .cookie-consent-banner.visible {
+                display: block;
+            }
+        </style>
+
+        <!-- Deferred cookie consent -->
+        <script type="module">
+            // Load cookie consent script after page load
+            window.addEventListener('load', () => {
+                const script = document.createElement('script');
+                script.src = '//www.freeprivacypolicy.com/public/cookie-consent/4.1.0/cookie-consent.js';
+                script.async = true;
+                script.onload = () => {
+                    cookieconsent.run({
+                        "notice_banner_type":"simple",
+                        "consent_type":"express",
+                        "palette":"light",
+                        "language":"en",
+                        "page_load_consent_levels":["strictly-necessary"],
+                        "notice_banner_reject_button_hide":false,
+                        "preferences_center_close_button_hide":false,
+                        "page_refresh_confirmation_buttons":false,
+                        "website_name":"Performance Course"
+                    });
+                };
+                document.head.appendChild(script);
             });
         </script>
     </head>
